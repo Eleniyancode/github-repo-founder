@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Repo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" defer src="./src/js/controller.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <form action="get">
+          <input type="text" class="search__field" placeholder="input your github username..." />
+          <button class="btn btn__submit">Get Repos</button>
+        </form>
+      </header>
+      <main class="main">
+        <div class="search-div">
+            <input type="text" class="search" placeholder="search for a repo...">
+            <img class="search-icon" src="./src/img/icons8-search-30.png" alt="icon-logo">
+        </div>
+        <div class="result">
+          <div class="repos">
+            </div>
+        </div>
+        </div>
+        <div class="pagination">
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+  </body>
+</html>

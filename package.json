@@ -1,0 +1,19 @@
+{
+  "name": "github-repo-finder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@octokit/core": "^7.0.3",
+    "octokit": "^5.0.3"
+  },
+  "devDependencies": {
+    "vite": "^7.0.6"
+  }
+}

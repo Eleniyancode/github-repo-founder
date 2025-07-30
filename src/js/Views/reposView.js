@@ -2,9 +2,30 @@ import View from "./view.js";
 
 class ReposView extends View {
   _parentElement = document.querySelector(".repos");
-  _searchInputDiv = document.querySelector('.search-div')
+  _searchInputDiv = document.querySelector('.search-div');
   _errorMessage = "No repository found or repository list is empty";
   _message = '';
+
+  addHandlerMoreInfo(handler) {
+    this._parentElement.addEventListener('click', function(e) {
+      const btn = e.target.closest('.more-info-btn');
+      if (!btn) return
+      const repoName = btn.dataset.repo;
+      console.log(repoName);
+      handler(repoName)
+
+    })
+  }
+
+  addHandlerDelete(handler) {
+    this._parentElement.addEventListener('click', function(e) {
+      const btnDelete = e.target.closest('.btn-delete');
+      if (!btnDelete) return
+      const repoName = btnDelete.dataset.repo
+      console.log(repoName);
+      handler(repoName)
+    })
+  }
 
   _generateMarkup() {
     console.log(this._data);
@@ -13,13 +34,6 @@ class ReposView extends View {
 
    renderSearch() {
     this._searchInputDiv.style.opacity = '1';
-  //   const markup = `
-  //       <div class="search-div">
-  //           <input type="text" class="search" placeholder="search for a repo...">
-  //           <img class="search-icon" src="./src/img/icons8-search-30.png" alt="icon-logo">
-  //       </div>
-  //   `
-  //   this._mainElement.insertAdjacentHTML('afterbegin', markup);
    }
 
   _generateListMarkup(repo) {
@@ -29,13 +43,13 @@ class ReposView extends View {
                 <a href="#" class="repo-name">${repo.name}</a>
                 <p class="repo-description">${(repo.description
                     ? repo.description
-                  : "No description for this repo, click on more info button to view more information about the repository"
+                  : "No description for this repository"
                 )}</p>
             </div>
 
             <div class="repo-buttons">
-                <button>More Info</button>
-                <button>Delete</button>
+                <button data-repo="${repo.name}" class="more-info-btn">More Info</button>
+                <button data-repo="${repo.name}" class="btn-delete">Delete</button>
             </div>
           </div>
         `

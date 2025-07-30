@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/core";
-import { RES_PER_PAGE } from "./config";
+import { RES_PER_PAGE, TIMEOUT_SEC } from "./config";
+import { timeout } from "./helpers";
 
 // // Octokit.js
 // // https://github.com/octokit/core.js#readme
@@ -14,23 +15,39 @@ export const state = {
   },
 };
 const searchEl = document.querySelector('.search')
+const containerEl = document.querySelector('.container')
 export const getRepo = async function (username) {
   try {
     state.search.username = username;
     const octokit = new Octokit();
-    const res = await octokit.request(`GET /users/${username}/repos`, {
+    const res = await Promise.race([octokit.request(`GET /users/${username}/repos`, {
       username: `${username}`,
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
-    });
+    }), timeout(TIMEOUT_SEC)]);
+
+    if (res.status !== 200) {
+        throw new Error('Problem fetching data, please try again!');
+    }
     const { data } = res;
 
+    console.log( res, data);
     state.search.results = data.map((repo) => {
       return {
         id: repo.id,
         name: repo.name,
         description: repo.description,
+        fullName: repo.full_name,
+        createdAt: repo.created_at,
+        updatedAt: repo.updated_at,
+        issues: repo.open_issues,
+        watchers: repo.watchers,
+        forks: repo.forks,
+        visibility: repo.visibility,
+        language: repo.language,
+        stars: repo.stargazers_count,
+        userType: repo.owner.user_view_type
       };
     });
     return data;

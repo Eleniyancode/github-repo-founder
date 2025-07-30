@@ -9,11 +9,15 @@ class QuickSearchView {
 
   addHandlerSearch(handler) {
     console.log(this.element);
-    // handler(this._searchInputEl)
     this.element.addEventListener('input', function(){
-      handler(this.element)
-    //     handler(this.searchInputEl)
+      handler(this.element);
      })
+  }
+
+  addHandlerSearchBlur(handler) {
+    this.element.addEventListener('blur', function() {
+      handler(this.element);
+    })
   }
 }
 

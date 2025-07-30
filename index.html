@@ -4,31 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github Repo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <script type="module" defer src="./src/js/controller.js"></script>
   </head>
-  <body>
+  <body class="pt-sans-regular">
     <div class="container">
       <header>
+        <section class="title-section">
+          <div class="title-logo">
+            <img src="./src/img/github.png" alt="title-logo" />
+          </div>
+          <div>
+            <h1 class="title-heading">GitHub Repositories Fetcher</h1>
+            <p class="title-description">
+              Get a user repositories in one click
+            </p>
+          </div>
+        </section>
         <form action="get">
-          <input type="text" class="search__field" placeholder="input your github username..." />
-          <button class="btn btn__submit">Get Repos</button>
+          <input
+            type="text"
+            class="search__field"
+            placeholder="input a github username..."
+          />
+          <button class="btn btn__submit">fetch Repos</button>
         </form>
       </header>
       <main class="main">
         <div class="search-div">
-            <input type="text" class="search" placeholder="search for a repo...">
-            <img class="search-icon" src="./src/img/icons8-search-30.png" alt="icon-logo">
+          <input
+            type="text"
+            class="search"
+            placeholder="search for a repo by name..."
+          />
+          <img
+            class="search-icon"
+            src="./src/img/icons8-search-30.png"
+            alt="icon-logo"
+          />
         </div>
         <div class="result">
-          <div class="repos">
-            </div>
-        </div>
-        </div>
-        <div class="pagination">
+          <div class="repos"></div>
+          <div class="repo-more-info"></div>
         </div>
       </main>
-      <footer class="footer"></footer>
     </div>
+
+    <div class="pagination"></div>
+
+    <footer class="footer"></footer>
   </body>
 </html>

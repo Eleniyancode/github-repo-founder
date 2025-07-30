@@ -11,8 +11,9 @@ html {
 
 body {
     padding: 2rem;
+    color: white;
     /* height: 100%; */
-    border: 4px dotted ;
+    /* border: 4px dotted ; */
     background-color: black;
     /* display: flex;
     flex-direction: column;
@@ -20,9 +21,15 @@ body {
     align-items: center; */
 }
 
+.pt-sans-regular {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .container {
     /* border: 2px dotted whitesmoke; */
-    width: 70%;
+    width: 90%;
     /* height: 50rem; */
     margin-inline: auto;
     /* height: 200px; */
@@ -33,11 +40,41 @@ header {
     padding: 2rem;
     display: flex;
     justify-content: center;
+    /* border: 1px solid white; */
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.title-section {
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    /* padding-inline: 4rem; */
+    padding: 2rem;
+}
+
+.title-logo {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.title-logo img {
+    width: 70px;
+    height: 70px;
+}
+
+.title-heading {
+    font-size: 2.8rem;
 }
 
 header form {
     display: flex;
     gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 header input {
@@ -55,30 +92,36 @@ header input::placeholder {
 
 form button {
     width: 10rem;
+    padding: 1rem;
     border-radius: 9px;
     border: none;
 }
 
+
 /* main style */
 
 main {
-    min-width: 90%;
+    min-width: 95%;
     /* border: 2px dotted red; */
     /* height: 200px; */
 }
 
 .repos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 200px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: repeat(2, 200px); */
     /* flex-direction: column; */
     gap: 4rem;
     /* border: 2px dotted yellow; */
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 
 .repo {
+    width: 200px;
     list-style: none;
     font-size: 2rem;
     padding: 1rem;
@@ -103,6 +146,11 @@ main {
     color: white;
 }
 
+.repo-description {
+    text-align: left;
+    font-size: 1.4rem;
+}
+
 .repo-buttons {
     /* margin-block: 1rem; */
     display: flex;
@@ -117,7 +165,7 @@ main {
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     position: relative;
     opacity: 0;
 }
@@ -143,12 +191,14 @@ main {
 /* pagination style */
 .pagination {
     display: flex;
-    min-width: 90%;
-    flex-wrap: nowrap;
+    max-width: 90%;
+    flex-wrap: wrap;
     /* border: 2px dotted white; */
     /* margin-bottom: 2rem; */
+    margin: 0 auto;
     gap: 2rem;
     justify-content: center;
+    align-items: center;
 }
 .pagination button {
     display: block;
@@ -156,6 +206,44 @@ main {
     padding-block: 5px;
     border-radius: 9px;
     border: none;
+}
+
+.error {
+    border: 2px solid white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-danger-div img {
+    width: 30px;
+    height: 30px;
+}
+
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.spinner img {
+    height: 6rem;
+    width: 6rem;
+    animation: rotate 2s infinite linear;
+  }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* component style */
@@ -169,6 +257,28 @@ input:active {
     border: 2px solid red;
 }
 
+/* tabel style */
+table {
+    border: 2px solid white;
+    padding: 1rem;
+    font-size: 1.4rem;
+    margin: 0 auto;
+}
+
+td {
+    padding: 1rem;
+}
+
+
+
+.back-btn-div {
+    margin-inline: auto;
+    max-width: fit-content;
+}
+.back-btn {
+    padding: 1rem;
+    margin-top: 1rem;
+}
 button:hover {
     color: white;
     background-color: blue;
@@ -178,13 +288,22 @@ button:hover {
 @media (max-width: 400px) {
     .container {
         width: 90%;
-        border: 2px solid white;
+        /* border: 2px solid white; */
     }
 
     header {
-        max-width: 80%;
-        border: 2px solid blue;
+        /* max-width: 80%; */
+        /* border: 2px solid blue; */
         margin: 0 auto;
+    }
+
+    header form {
+        /* border: 2px solid red; */
+        width: 100%;
+    }
+
+    form input {
+        width: 80%;
     }
 
     .repos {
@@ -195,8 +314,12 @@ button:hover {
     }
     .pagination {
         max-width: 90%;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         flex-wrap: wrap;
         margin: 0 auto;
     }
+}
+
+.hidden {
+    display: none;
 }

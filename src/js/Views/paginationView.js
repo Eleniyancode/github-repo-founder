@@ -19,9 +19,10 @@ class PaginationView extends View {
     const currPage = this._data.page
         const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage)
         console.log(numPages);
-        let html;
-        for (let i =1; i <= numPages; i++) {
-            html += `<button data-goto="${i}" class="button">Page ${i}</button>`
+        let html = '';
+        for (let i = 1; i <= numPages; i++) {
+            html += `
+            <button data-goto="${i}" class="button">Page ${i}</button>`
         }
         return html
     }

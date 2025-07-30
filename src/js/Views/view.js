@@ -8,41 +8,45 @@ export default class View {
 
     this._data = data;
     console.log(this._data);
-    const markup = this._generateMarkup();
-    this._clear();
-    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this.clear();
+    this.show();
   }
 
-  _clear() {
+  clear() {
     this._parentElement.innerHTML = "";
   }
 
+  hide() {
+  this._parentElement.classList.add('hidden');
+  }
   
-    renderSpinner() {
+  show() {
+    const markup = this._generateMarkup();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    this._parentElement.classList.remove('hidden');
+  }
+
+  renderSpinner() {
     const markup = `
         <div class="spinner">
-          <svg>
-            <use href="#icon-loader"></use>
-          </svg>
+          <img src="./src/img/icons8-spinner-30.png" alt="icon-spinner">
         </div>
       `;
 
-    this._clear();
-    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    this.clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderError(message = this._errorMessage) {
     const markup = `
         <div class="error">
-                    <div>
-                      <svg>
-                        <use href="#icon-alert-triangle"></use>
-                      </svg>
+                    <div class="icon-danger-div">
+                    <img src="./src/img/icons8-danger-50.png" alt="icon-danger">
                     </div>
                     <p>${message}</p>
                   </div>
     `;
-    this._clear();
-    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    this.clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 }

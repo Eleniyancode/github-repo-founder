@@ -1,3 +1,6 @@
+import iconSpinner from '../../img/icons8-spinner-30.png'
+import iconDanger from '../../img/icons8-danger-50.png'
+
 export default class View {
   _data;
 
@@ -29,7 +32,7 @@ export default class View {
   renderSpinner() {
     const markup = `
         <div class="spinner">
-          <img src="./src/img/icons8-spinner-30.png" alt="icon-spinner">
+          <img src="${iconSpinner}" alt="icon-spinner">
         </div>
       `;
 
@@ -41,7 +44,7 @@ export default class View {
     const markup = `
         <div class="error">
                     <div class="icon-danger-div">
-                    <img src="./src/img/icons8-danger-50.png" alt="icon-danger">
+                    <img src="${iconDanger}" alt="icon-danger">
                     </div>
                     <p>${message}</p>
                   </div>

@@ -2,9 +2,7 @@ import { Octokit } from "@octokit/core";
 import { RES_PER_PAGE, TIMEOUT_SEC } from "./config";
 import { timeout } from "./helpers";
 
-// // Octokit.js
-// // https://github.com/octokit/core.js#readme
-
+// defining the state variable
 export const state = {
   repos: {},
   search: {
@@ -15,10 +13,12 @@ export const state = {
   },
 };
 const searchEl = document.querySelector('.search')
-const containerEl = document.querySelector('.container')
+
+// function logic to fetch repo using octokit
 export const getRepo = async function (username) {
   try {
     state.search.username = username;
+    // making the API call
     const octokit = new Octokit();
     const res = await Promise.race([octokit.request(`GET /users/${username}/repos`, {
       username: `${username}`,
@@ -27,12 +27,14 @@ export const getRepo = async function (username) {
       },
     }), timeout(TIMEOUT_SEC)]);
 
+    // checking the status of the API call and handling the error
     if (res.status !== 200) {
         throw new Error('Problem fetching data, please try again!');
     }
-    const { data } = res;
 
-    console.log( res, data);
+    // consuming the promise return from the API call
+    const { data } = res;
+    // console.log( res, data);
     state.search.results = data.map((repo) => {
       return {
         id: repo.id,
@@ -71,11 +73,11 @@ export const getReposPage = function (page = state.search.page) {
 export const searchByKeyword = function(element = searchEl) {
   element = searchEl
   const keyword = element.value.toLowerCase();
-  console.log(state.search.results);
-  console.log(keyword);
+  // console.log(state.search.results);
+  // console.log(keyword);
     const filtered = state.search.results.filter(repo => {  
       return repo.name.toLowerCase().includes(keyword);
     })
-    console.log(filtered);
+    // console.log(filtered);
       return filtered;
 }

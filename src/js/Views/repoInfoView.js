@@ -70,12 +70,6 @@ class RepoInfoView extends View {
     });
   }
 
-  // addHandler(handler) {
-  //   this._parentElement.addEventListener('click', function(e) {
-  //     if (e.target.classList.contains())
-  //   })
-  // }
-
   show() {
     this._parentElement.classList.remove("hidden");
   }

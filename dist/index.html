@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Repo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-2T4b2k4t.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C_2nXkl-.css">
+  </head>
+  <body class="pt-sans-regular">
+    <div class="container">
+      <header>
+        <section class="title-section">
+          <div class="title-logo">
+            <img src="/assets/github-D-KAx-VK.png" alt="title-logo" />
+          </div>
+          <div>
+            <h1 class="title-heading">GitHub Repositories Fetcher</h1>
+            <p class="title-description">
+              Get a user repositories in one click
+            </p>
+          </div>
+        </section>
+        <form action="get">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="input a github username..."
+          />
+          <button class="btn btn__submit">fetch Repos</button>
+        </form>
+      </header>
+      <main class="main">
+        <div class="search-div">
+          <input
+            type="text"
+            class="search"
+            placeholder="search for a repo by name..."
+          />
+          <img
+            class="search-icon"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABx0lEQVR4nO2WS0oEQQyGG18bHzsFr6DeQV3rQkW9gii+TyFew9dRBHHjAxzRcSuDbub/p6vaVSRNSnqjTNUMg6CBWnWlv1TyJ1VZ9m+/xURkyJHrHjh3ZM2RLVs1D5zpN93TVWgOrDiy7kn5aTnyOQeWOwaKSJ8nj79+DNwU5G4BTMnr67CuD3K6IPcccFsJ4kh9k8HeoA4oPLDx08/KIIHNcq/Bk9PrDeqA2Yhg5wI8B5ZShFQvIwc2YoP2wJbV/ElEBtt2dKpeq2lKrUSk3wF3durVmIgvrE47WaLl5L5l7LRtJ0c+qpOqNxWsard012LAVCdpNEZSwfL2Nmpg9hb8/j6WAn7sQqpngrLbdvLAWQkm91LBjjw0cZ2ktNNtB+10bydeix0gzxbxZizYk9sGrYvIQJRzDix/zWlyLgI674CPslTN5mJs0KXpoK9cEluawuwb02960gD1QIPkRNbBtXhUuRbvdCLpcNBW06XqzcmDUNMADfuT4Wp6y2hbtPEQeCmazQWFhVndMVxEBnXg6+x15IMOBnv6PGnLqHqrQuoqPNYAjIeXiQbbarUmsz8BZyXtHrjqGTjAPXDtycuegv8tM/sECdzcrfZkXUcAAAAASUVORK5CYII="
+            alt="icon-logo"
+          />
+        </div>
+        <div class="result">
+          <div class="repos"></div>
+          <div class="repo-more-info"></div>
+        </div>
+      </main>
+    </div>
+
+    <div class="pagination"></div>
+
+    <footer class="footer"></footer>
+  </body>
+</html>

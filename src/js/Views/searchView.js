@@ -1,16 +1,16 @@
 import View from "./view";
 
-class SearchView extends View{
+class SearchView extends View {
   _parentElement = document.querySelector("header");
 
   getQuery() {
-    const query = this._parentElement.querySelector('.search__field').value;
+    const query = this._parentElement.querySelector(".search__field").value;
     this._clearInputField();
     return query;
   }
 
   _clearInputField() {
-    this._parentElement.querySelector('.search__field').value = '';
+    this._parentElement.querySelector(".search__field").value = "";
   }
 
   addHandlerSearch(handler) {
@@ -20,6 +20,5 @@ class SearchView extends View{
     });
   }
 }
-
 
 export default new SearchView();
